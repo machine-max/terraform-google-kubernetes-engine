@@ -6,6 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Extending the adopted spec, each change should have a link to its corresponding pull request appended.
 
+## [8.0.0](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/compare/v7.3.0...v8.0.0) (2020-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Beta clusters now have Workload Identity enabled by default. To disable Workload Identity, set `identity_namespace = null`
+* Beta clusters now have shielded nodes enabled by default. To disable, set `enable_shielded_nodes = false`.
+
+### Features
+
+* Enable WI and shielded nodes by default in beta clusters ([#441](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/issues/441)) ([704962b](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/commit/704962b1b5408bed8e4102df198eb843b7e8d1d1))
+* Rollout default_max_pods_per_node setting to GA modules ([#439](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/issues/439)) ([36ddbbb](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/commit/36ddbbb82d6861689d734e76eeab7c0d162351ce))
+
+
+### Bug Fixes
+
+* Remove unused variable `service_account` in safer-cluster to avoid confusion ([#448](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/issues/448)) ([a30e7cd](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/commit/a30e7cd339f71bbfee5885f12326cf77717daf74))
+
 ## [7.3.0](https://www.github.com/terraform-google-modules/terraform-google-kubernetes-engine/compare/v7.2.0...v7.3.0) (2020-02-19)
 
 
