@@ -24,6 +24,7 @@ module "gke" {
   name               = var.name
   regional           = var.regional
   region             = var.region
+  zones              = var.zones
   network            = var.network
   network_project_id = var.network_project_id
 
@@ -31,6 +32,7 @@ module "gke" {
   // that the necessary security features are enabled.
   kubernetes_version = "latest"
 
+  release_channel = "STABLE"
   // Nodes are created with a default version. The nodepool enables
   // auto_upgrade so that the node versions can be kept up to date with
   // the master upgrades.
