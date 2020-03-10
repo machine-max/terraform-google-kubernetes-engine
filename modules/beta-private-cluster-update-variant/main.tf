@@ -69,7 +69,7 @@ locals {
   zone_count                  = length(var.zones)
   cluster_type                = var.regional ? "regional" : "zonal"
   // auto upgrade by defaults only for regional cluster as long it has multiple masters versus zonal clusters have only have a single master so upgrades are more dangerous.
-  default_auto_upgrade = var.regional ? true : false
+  default_auto_upgrade = true
 
   cluster_network_policy = var.network_policy ? [{
     enabled  = true

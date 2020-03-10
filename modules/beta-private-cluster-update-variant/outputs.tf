@@ -162,3 +162,9 @@ output "identity_namespace" {
     google_container_cluster.primary
   ]
 }
+
+
+output "token" {
+  description = "Kubernetes access token"
+  value       = data.google_client_config.default.access_token
+}
