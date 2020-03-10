@@ -39,6 +39,7 @@ module "gke" {
   //
   // https://cloud.google.com/kubernetes-engine/versioning-and-upgrades
   node_version = ""
+  auto_upgrade = true
 
   master_authorized_networks = var.master_authorized_networks
 
