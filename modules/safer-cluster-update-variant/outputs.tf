@@ -126,3 +126,8 @@ output "token" {
   description = "Kubernetes access token"
   value       = module.gke.default.access_token
 }
+
+output "public_endpoint" {
+  description = "Kubernetes master public IP address"
+  value       = module.gke.default.public_endpoint
+}

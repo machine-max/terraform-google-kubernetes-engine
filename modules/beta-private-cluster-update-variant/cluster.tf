@@ -345,7 +345,7 @@ resource "google_container_node_pool" "pools" {
 
   management {
     auto_repair  = lookup(each.value, "auto_repair", true)
-    auto_upgrade = lookup(each.value, "auto_upgrade", local.default_auto_upgrade)
+    auto_upgrade = lookup(each.value, "auto_upgrade", true)
   }
 
   upgrade_settings {
