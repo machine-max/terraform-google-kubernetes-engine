@@ -175,7 +175,7 @@ output "token" {
 output "public_endpoint" {
   sensitive   = true
   description = "Cluster endpoint"
-  value       = google_container_cluster.primary.private_cluster_config.public_endpoint
+  value       = google_container_cluster.primary.private_cluster_config[0].public_endpoint
   depends_on = [
     /* Nominally, the endpoint is populated as soon as it is known to Terraform.
     * However, the cluster may not be in a usable state yet.  Therefore any
