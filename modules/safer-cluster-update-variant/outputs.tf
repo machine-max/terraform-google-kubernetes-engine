@@ -124,10 +124,10 @@ output "master_ipv4_cidr_block" {
 
 output "token" {
   description = "Kubernetes access token"
-  value       = module.gke.default.access_token
+  value       = module.gke.token
 }
 
 output "public_endpoint" {
   description = "Kubernetes master public IP address"
-  value       = module.gke.default.public_endpoint
+  value       = module.gke.public_endpoint
 }
