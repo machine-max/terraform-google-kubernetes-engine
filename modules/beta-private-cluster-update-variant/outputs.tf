@@ -162,3 +162,29 @@ output "identity_namespace" {
     google_container_cluster.primary
   ]
 }
+
+
+output "token" {
+  description = "Kubernetes access token"
+  value       = data.google_client_config.default.access_token
+}
+
+
+
+
+output "public_endpoint" {
+  sensitive   = true
+  description = "Cluster endpoint"
+  value       = google_container_cluster.primary.private_cluster_config[0].public_endpoint
+  depends_on = [
+    /* Nominally, the endpoint is populated as soon as it is known to Terraform.
+    * However, the cluster may not be in a usable state yet.  Therefore any
+    * resources dependent on the cluster being up will fail to deploy.  With
+    * this explicit dependency, dependent resources can wait for the cluster
+    * to be up.
+    */
+    google_container_cluster.primary,
+    google_container_node_pool.pools,
+    null_resource.wait_for_cluster.id,
+  ]
+}

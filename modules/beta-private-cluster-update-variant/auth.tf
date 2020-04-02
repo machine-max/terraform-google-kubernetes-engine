@@ -27,9 +27,10 @@ data "google_client_config" "default" {
   Configure provider
  *****************************************/
 provider "kubernetes" {
-  version                = "~> 1.10.0"
+  version                = "~> 1.11.0"
   load_config_file       = false
-  host                   = "https://${local.cluster_endpoint}"
+  host                   = "https://${google_container_cluster.primary.private_cluster_config[0].public_endpoint}"
   token                  = data.google_client_config.default.access_token
   cluster_ca_certificate = base64decode(local.cluster_ca_certificate)
 }
+
